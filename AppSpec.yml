@@ -1,0 +1,23 @@
+version: 0.0
+os: windows
+files:
+  - source: /
+    destination: C:\PlayerMaxAutomatedDeployment
+hooks:
+  BeforeInstall:
+    - location: /BeforeInstall.ps1
+      timeout: 300
+      runas: root
+  AfterInstall:
+    - location: /AfterInstallScript.ps1
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: /DoNothing.ps1
+    - location: /DoNothing.ps1
+      timeout: 300
+      runas: root
+  ApplicationStop:
+    - location: /DoNothing.ps1
+      timeout: 300
+      runas: root
